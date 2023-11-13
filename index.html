@@ -1,0 +1,51 @@
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+
+<HTML>
+<HEAD>
+<meta name="keywords" content="Amateur Radio, File, Files, APRS,">
+<meta name="description" content="APRSFile Protocol">
+<TITLE>APRSFile: A basic file transmission protocol for APRS</TITLE>
+</HEAD>
+<BODY>
+<H1 ALIGN="CENTER">APRSFile: A basic file transmission protocol for APRS</H1>
+<P>
+APRSFile is a basic file transmission protocol for APRS that allows for the transmission of files via APRS. Any type of file can be transmitted (photos, text, audio files), though the transmission rate is not very fast. 
+</P>
+<H2 ALIGN="CENTER">Basics of the format</H2>
+<P>
+The format encodes files to Base64 before sending them over aprs. Base64 is a standard format that can be easily decoded. Encoding the files with Base64 allows for the files to have characters in them that would not be allowed in normal APRS messages, allowing for binary files such as images to be transmitted. The format starts each file transmission with an initial message that states the name of the file and an ID. Every packet that contains the Base64 data will be prefixed with the ID. 
+<P>
+Here is an example of an initial message: "APRSFile|test.txt|FPV|BASE64 Encoded Data". 
+<P>
+After the initial message is sent, the messages containing the Base64 data are sent. 
+<P>
+Here is an example of a message with the Base64 data prefixed with the ID: "FPVVGhpcyBpcyBhIHRlc3Qgd2l0aCBBUFJTRklMRS4=". 
+<P>
+64 characters of Base64 data are sent in each message.
+</P>
+<H2 ALIGN="CENTER">Using the format</H2>
+<P>
+You can use this web tool to decode files sent over the APRS network. It will automatically fetch the APRS data from the callsign. The web tool is currently not working due to Heroku discontinuing free plans. It will hopefully be back up in the future.
+<P>
+<a href="webtool">APRSFile Web Tool</a>
+<P>
+You can use these python scripts to do the encoding and decoding. Here is a link to download them:
+<a href="aprs-file.zip">aprs-file.zip</a>
+The zip file contains instructions on how to use the scripts.
+</P>
+<H2 ALIGN="CENTER">Transmitting files</H2>
+<P>
+After encoding the file with the scripts, you will have some wave files. These files can be played into a radio and transmitted. You can transmit on the APRS frequency. You can also transmit on any frequency that will support 1200bps AX.25. Please follow the regulations in your county. Also, please be considerate to other users on the APRS frequency and do not hog the frequency by playing all the files in quick succession. 
+</P>
+<P>
+Here are some examples of some files sent with this protocol.
+</P>
+<a href="example">Examples</a>
+</P>
+Here is an image transmitted over APRS:
+<P>
+<img src="thanksgiving.jpg" alt="APRS" width="256" height="64">
+</P>
+
+

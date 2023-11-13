@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<b>APRSFile Decoder</b>
+<br>
+<script language="javascript" type="text/javascript">
+    function buttonClick(){
+    var url = "https://aprs-file.herokuapp.com/?callsign=" + document.getElementById("inputURL").value;
+	openInNewTab(url)
+	
+    //window.location = url;
+    }
+    function buttonClickk(){
+	var url = "https://aprs-file.herokuapp.com/?callsign=" + document.getElementById("inputURL").value + "&filename=" + document.getElementById("inputURLL").value;
+    //var url = document.getElementById("inputURL").value;
+	openInNewTab(url)
+   // window.location = url;
+    }
+	function openInNewTab(url) {
+	  var win = window.open(url, '_blank');
+	  win.focus();
+	}
+</script>
+<body>
+Callsign: <input type="text" id="inputURL" name="inputURL" value=""><br>
+Filename: <input type="text" id="inputURLL" name="inputURLL" value=""><br>
+<input type="button" value="Get Available Files" OnClick="buttonClick()"/>
+<input type="button" value="Get File" OnClick="buttonClickk()"/>
+</form>
+</body>
+</html>
+<p>To use, first enter the callsign and click the button to get available files. Next, type the name of the file you would like into the filename field and click get file.</p>
